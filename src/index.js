@@ -1,18 +1,4 @@
-
-
-
-
-
-
-// // Your API key=34899280-ba1753ecc84482fb675b913b6
-// //https://pixabay.com/api/
-
-
-
-
-
-
-import ImageApiService from './image-service';
+import ImageApiService from './image-APIservice';
 import Notiflix from 'notiflix';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
@@ -54,6 +40,7 @@ function onSearch(e) {
     refs.imagesContainer.insertAdjacentHTML('beforeend', imagesElements);
     refs.loadMoreBtn.classList.remove('is-hidden');
     Notiflix.Notify.success(`Hooray! We found ${images.totalHits} images.`);
+
     imageApiService.totalImages = images.totalHits;
     imageApiService.countPagesQuantity();
     lightbox.refresh();
@@ -84,8 +71,6 @@ function onLoadMore() {
     }
   });
 }
-
 function clearImagesContainer() {
   refs.imagesContainer.innerHTML = '';
 }
-
